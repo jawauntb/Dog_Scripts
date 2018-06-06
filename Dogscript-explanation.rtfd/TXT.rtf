@@ -1,0 +1,43 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf100
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;\f1\froman\fcharset0 Times-Roman;\f2\fnil\fcharset0 HelveticaNeue-Bold;
+}
+{\colortbl;\red255\green255\blue255;\red53\green53\blue53;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c27059\c27059\c27059;\cssrgb\c0\c0\c0;}
+\margl1440\margr1440\vieww14600\viewh13380\viewkind0
+\deftab560
+\pard\pardeftab560\sl480\slmult1\pardirnatural\qj\partightenfactor0
+
+\f0\fs24 \cf2 	\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1 \cf3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 {{\NeXTGraphic unknown.jpg \width4500 \height4500 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬} 		Jawaun T Brown, for Vigilant
+\f0 \cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\pard\pardeftab560\sl480\slmult1\pardirnatural\qj\partightenfactor0
+\cf2 	The sample class 
+\f2\b Dog_breeds
+\f0\b0  is a class with methods that allow one to search the AKC website and find individual links for individual dog breeds. It consists of 4 methods that build on and borrow from one another. The method 
+\f2\b get_dog_soup
+\f0\b0  uses the requests library in order to retrieve a response from our datasource, the AKC's website. The method assigns the response from the get request to a variable called \'91newpage\'92. The status code of the request is then printed to identify whether or not the request was successful. This page\'92s text is assigned to a variable \'91texts\'92 and then it is loaded into a Beautiful Soup object(\'91dogsoup\'92), along with an html parser to allow the new \'91dogsoup\'92 object to parse through the various parts of the html document it contains.  The method 
+\f2\b get_all dogs
+\f0\b0  takes the soup from get_dog_soup as an input. It searches for the specific tags in which dog breed names have been listed and stores the values of each dog name in an array. This array is then stripped of any non-essential text and sorted in alphabetical, lower-case order. 
+\f2\b Get_all_links
+\f0\b0  functions similarly to get_all_dogs with the exception that it searches a subsection of the its tags to find a hyperlink instead of plain text.It returns the value assigned to \'91href\'92 under the specified tag. 
+\f2\b Set_dog_dict
+\f0\b0  is the final method in this class, which takes in two lists as inputs (the lists created by both get_all_(x) methods. It creates a dictionary and iterates through each list passed in. At each i-th position, the dictionary gets a new key which is equal to dogs[i], and a value equal to links[i]. Finally, the completed and matched array of dogs and their official breed hyperlinks is returned. There are try catch statements around each of the methods to ensure that the response has a healthy status code, that the values in the html are preset/non-empty, and also to check that the indexes and positions in the final dictionary product match. \
+\pard\pardeftab560\slleading20\pardirnatural\qj\partightenfactor0
+\cf2 \
+\
+\
+\pard\pardeftab560\sl480\slmult1\qj\partightenfactor0
+\cf2 	The second code sample I provided is a series of unit tests to verify the functionality of my code. The unit tests are contained in a separate file under the same project folder in a section called tests. The first method is a 
+\f2\b setUp 
+\f0\b0 method. It initializes the values we need for our testing environment. It provides a set of links, the proper url to be requested as well as the response formatted as a BeautifulSoup object. 
+\f2\b Test_get_all_dogs 
+\f0\b0 ensures that the right dogs are being returned and sorted. It does so by asserting that the first dog in the list returned by get_all_dogs should be an affenpinscher, lower-case. If true, this test passes. The last test is a cumulative test because it requires the other methods to be working in order to function\'97this was done for time\'92s sake, but in the future it is ideal to write unit tests for each method that you add or modify in your code. 
+\f2\b Test_set_dog_dict 
+\f0\b0 initializes a mock dog dictionary. It then assigns the value of the dictionary at its supposed first entry, (cap.) \'91Affenpinscher\'92 to a variable \'91first\'92. If the method is successful then the value of first should be equal to the link provided in the value testy. The method asserts the equality of first and testy, and if successful it passes. Finally, the 
+\f2\b tearDown
+\f0\b0  method deallocates the heap memory where the local variables are being stored as it is no longer needed once a test finishes. The tests run in an average time of 1.32 seconds\
+}
